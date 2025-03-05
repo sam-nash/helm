@@ -1,3 +1,4 @@
+# Templatized Service manifest
 apiVersion: v1
 kind: Service
 metadata:
@@ -10,3 +11,17 @@ spec:
     - protocol: {{ .Values.service.protocol | default "TCP" }}
       port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
+
+# Example of a Service manifest
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: release-name-service
+# spec:
+#   selector:
+#     app.kubernetes.io/instance: release-name
+#   type: ClusterIP
+#   ports:
+#     - protocol: TCP
+#       port: 80
+#       targetPort: 9000
